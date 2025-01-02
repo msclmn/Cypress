@@ -5,10 +5,9 @@ module.exports = defineConfig({
     baseUrl: "https://ecommerce-playground.lambdatest.io",
     viewportWidth: 1280,
     viewportHeight: 720,
-    specPattern: "*/ui/lambdaTestPlayground/*.spec.js",
-    supportFile: "*/index.js", // Disable the support file if not needed
+    specPattern: "*/ui/*/*.spec.js",
+    supportFile: "*/index.js",
     setupNodeEvents(on, config) {
-      // implement node event listeners here
     },
   },
 });
