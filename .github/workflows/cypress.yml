@@ -1,11 +1,9 @@
-## It will execute all the UI tests
-
 name: Comprehensive Tests
 
 on:
   push:
     branches: [main]
-  workflow_dispatch: # Allows manual triggering of the workflow
+  workflow_dispatch:
 
 jobs:
   UI-test:
@@ -31,11 +29,12 @@ jobs:
       - name: Run Cypress Tests in Headed Mode
         run: npx cypress run --browser chrome --headed
 
+      - name: Generate and Upload Report
+        run: npm run generate-report
+
       - name: Upload UI Test Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-artifacts
-          path: |
-            videos/
-            videos/screenshots/
+          name: mochawesome-report
+          path: cypress/reports/mochawesome-report
