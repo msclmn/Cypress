@@ -8,10 +8,12 @@ module.exports = defineConfig({
     specPattern: "*/ui/*/*.spec.js",
     supportFile: "*/index.js",
     reporter: "mochawesome", 
-    reporterOptions: { reportDir: "cypress/reports/mochawesome-report", 
+    reporterOptions: { 
+      reportDir: "cypress/reports", 
       overwrite: false, 
-      html: false, 
-      json: true 
+      html: true, 
+      json: true, 
+      charts: true
     },
     setupNodeEvents(on, config) {
     },

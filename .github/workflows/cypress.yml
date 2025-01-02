@@ -29,19 +29,9 @@ jobs:
       - name: Run Cypress Tests in Headed Mode
         run: npx cypress run --browser chrome --headed
 
-      - name: List Report Files
-        run: ls -lh cypress/reports/mochawesome-report
-
-      - name: Check for Empty JSON Files
-        run: |
-          find cypress/reports/mochawesome-report -type f -name '*.json' -exec sh -c '[ ! -s "{}" ]' \; -print
-
-      - name: Generate and Upload Report
-        run: npm run generate-report
-
       - name: Upload UI Test Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: mochawesome-report
-          path: cypress/reports/mochawesome-report
+          name: Reports
+          path: cypress/reports/
