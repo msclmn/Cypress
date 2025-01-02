@@ -3,6 +3,12 @@
     "cypress": "^13.17.0",
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.3.0"
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^5.2.0"
+  },
+  "scripts": {
+    "test": "cypress run",
+    "generate-report": "mochawesome-merge cypress/reports/mochawesome-report/*.json > cypress/reports/mochawesome-report/mochawesome.json && npx mochawesome-report-generator cypress/reports/mochawesome-report/mochawesome.json"
   }
 }
+
