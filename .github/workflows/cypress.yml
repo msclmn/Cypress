@@ -27,7 +27,14 @@ jobs:
           sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxcomposite1 libxrandr2
 
       - name: Run Cypress Tests in Headed Mode
-        run: npm run test
+        run: npx cypress run --browser chrome --headed
+
+      - name: List Report Files
+        run: ls -lh cypress/reports/mochawesome-report
+
+      - name: Check for Empty JSON Files
+        run: |
+          find cypress/reports/mochawesome-report -type f -name '*.json' -exec sh -c '[ ! -s "{}" ]' \; -print
 
       - name: Generate and Upload Report
         run: npm run generate-report
