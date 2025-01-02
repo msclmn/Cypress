@@ -27,7 +27,7 @@ jobs:
           sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxcomposite1 libxrandr2
 
       - name: Run Cypress Tests in Headed Mode
-        run: npx cypress run --browser chrome --headed
+        run: npm run test
 
       - name: Generate and Upload Report
         run: npm run generate-report
