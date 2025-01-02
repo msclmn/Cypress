@@ -1,4 +1,4 @@
-## It will all the tests
+## It will execute all the UI tests
 
 name: Comprehensive Tests
 
@@ -23,5 +23,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress Tests
-        run: npx cypress run
+      - name: Install browser dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxcomposite1 libxrandr2
+
+      - name: Run Cypress Tests in Headed Mode
+        run: npx cypress run --browser chrome --headed
+
+      - name: Upload Cypress Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/videos/
+            cypress/screenshots/
