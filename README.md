@@ -27,7 +27,12 @@ To get started with the project, follow these steps:
     yarn install
     ```
 
-## To run tests
+## To run tests in Headless Mode
+```
+npx cypress run
+```
+
+## To run tests in Cypress GUI
 ```
 npx cypress open
 ```
