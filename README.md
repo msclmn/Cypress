@@ -5,6 +5,11 @@ This repository features an automation portfolio that highlights UI tests for a 
 
 Comprehensive Tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
 
+There are currently 3 pipelines/workflows: 
+1) Comprehensive Tests (Automatically triggered)
+2) UI Tests (Manually triggered)
+3) API Tests (Manually triggered)
+
 ## Prerequisites
 - [Node.js](https://nodejs.org/) (version 12 or above)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
@@ -40,7 +45,7 @@ npx cypress open
 ```
 
 ### CI/CD Pipeline Execution:
-- UI tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
+- API and UI tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
 
 To trigger a manual pipeline run:
 ```
