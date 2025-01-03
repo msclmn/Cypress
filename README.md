@@ -1,7 +1,7 @@
 # Cypress Framework Project
 
 ## Overview
-This repository features an automation portfolio that highlights UI tests for a web application, all implemented using Cypress. 
+This repository features an automation portfolio that highlights UI and API tests for a web application, all implemented using Cypress. 
 
 Comprehensive Tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
 
@@ -9,6 +9,10 @@ There are currently 3 pipelines/workflows:
 1) Comprehensive Tests (Automatically triggered)
 2) UI Tests (Manually triggered)
 3) API Tests (Manually triggered)
+
+## Testing Resources(URLs) Used
+- UI Tests: Lambdatest Playground: https://ecommerce-playground.lambdatest.io/
+- API Tests: FakeRestAPI: https://fakerestapi.azurewebsites.net/api/v1
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/) (version 12 or above)
