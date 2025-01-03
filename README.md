@@ -44,7 +44,7 @@ npx cypress run
 npx cypress open
 ```
 
-### CI/CD Pipeline Execution:
+### CI/CD Pipeline Execution through GitHub Actions:
 - API and UI tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
 
 To trigger a manual pipeline run:
