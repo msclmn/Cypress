@@ -3,7 +3,7 @@ name: Comprehensive Tests
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   UI-test:
@@ -34,7 +34,7 @@ jobs:
         if: always()
         with:
           name: UI-Reports
-          path: cypress/reports/ui/
+          path: cypress/reports/
 
   API-test:
     runs-on: ubuntu-latest
@@ -64,4 +64,4 @@ jobs:
         if: always()
         with:
           name: API-Reports
-          path: cypress/reports/api/
+          path: cypress/reports/
