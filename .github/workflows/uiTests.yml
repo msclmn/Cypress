@@ -1,0 +1,35 @@
+name: UI Tests
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  UI-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install browser dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxcomposite1 libxrandr2
+
+      - name: Run Cypress UI Tests
+        run: npx cypress run --browser chrome --headed --spec "*/ui/*/*.spec.js"
+
+      - name: Upload UI Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: UI-Reports
+          path: cypress/reports/
