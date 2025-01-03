@@ -1,0 +1,14 @@
+class ActivityModel {
+    constructor(id, title, dueDate, completed) {
+        this.id = id;
+        this.title = title;
+        this.dueDate = new Date(dueDate);
+        this.completed = completed;
+    }
+
+    static fromApiResponse(response) {
+        return new ActivityModel(response.id, response.title, response.dueDate, response.completed);
+    }
+}
+
+module.exports = { ActivityModel };

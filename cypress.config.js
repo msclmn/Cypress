@@ -5,7 +5,7 @@ module.exports = defineConfig({
     baseUrl: "https://ecommerce-playground.lambdatest.io",
     viewportWidth: 1280,
     viewportHeight: 720,
-    specPattern: "*/ui/*/*.spec.js",
+    specPattern: "*/*/*/*.spec.js",
     supportFile: "*/index.js",
     reporter: "mochawesome", 
     reporterOptions: { 

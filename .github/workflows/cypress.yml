@@ -3,7 +3,7 @@ name: Comprehensive Tests
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   UI-test:
@@ -26,12 +26,42 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxcomposite1 libxrandr2
 
-      - name: Run Cypress Tests in Headed Mode
-        run: npx cypress run --browser chrome --headed
+      - name: Run Cypress UI Tests
+        run: npx cypress run --browser chrome --headed --spec "*/ui/*/*.spec.js"
 
       - name: Upload UI Test Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Reports
+          name: UI-Reports
+          path: cypress/reports/
+
+  API-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install browser dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxcomposite1 libxrandr2
+
+      - name: Run Cypress API Tests in Headless Mode
+        run: npx cypress run --browser chrome --headless --spec "*/api/*/*.spec.js"
+
+      - name: Upload API Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: API-Reports
           path: cypress/reports/
